@@ -1,12 +1,13 @@
-export { UltraApp } from './core/app';
-export { CorsPlugin } from './plugins/cors';
-export { HelmetPlugin } from './plugins/helmet';
-export { CompressionPlugin } from './plugins/compression';
-export { JwtPlugin } from './plugins/jwt';
-export { ValidatorPlugin, ValidationError } from './plugins/validator';
-export { Logger, LogLevel } from './plugins/logger';
-export { RateLimiterPlugin } from './plugins/rateLimiter';
-export { EnvManager } from './plugins/env';
-export { FileWatcherPlugin } from './plugins/fileWatcher';
-
-export * from './types';
+export { default as Qera } from './core/app.js';
+export { CorsPlugin } from './plugins/cors.js';
+export { HelmetPlugin } from './plugins/helmet.js';
+export { CompressionPlugin } from './plugins/compression.js';
+export { JwtPlugin } from './plugins/jwt.js';
+export { ValidatorPlugin, ValidationError } from './plugins/validator.js';
+export { Logger, LogLevel } from './plugins/logger.js';
+export { RateLimiterPlugin } from './plugins/rateLimiter.js';
+export { EnvManager } from './plugins/env.js';
+export { FileWatcherPlugin } from './plugins/fileWatcher.js';
+export type { UltraRequest as Request } from './types/index.js';
+export type { UltraResponse  as Response} from './types/index.js';
+export * from './types/index.js';

@@ -1,4 +1,4 @@
-import { Plugin, Middleware } from '../types';
+import { Plugin, Middleware } from '../types/index.js';
 
 export interface CorsOptions {
   origin?: string | string[] | boolean;

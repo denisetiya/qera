@@ -1,9 +1,9 @@
 import { App, TemplatedApp, HttpRequest, HttpResponse } from 'uWebSockets.js';
-import type { UltraRequest, UltraResponse, RouteHandler, Middleware, Plugin } from '../types/index';
-import { Logger } from '../plugins/logger';
-import { EnvManager } from '../plugins/env';
+import type { UltraRequest, UltraResponse, RouteHandler, Middleware, Plugin } from '../types/index.js';
+import { Logger } from '../plugins/logger.js';
+import { EnvManager } from '../plugins/env.js';
 
-export class UltraApp {
+class Qera {
   private app: TemplatedApp;
   private middlewares: Middleware[] = [];
   private plugins: Plugin[] = [];
@@ -12,10 +12,15 @@ export class UltraApp {
   private routes: Map<string, Map<string, RouteHandler>> = new Map();
 
   constructor(options: { ssl?: any } = {}) {
-    this.app = options.ssl ? App(options.ssl) : App();
-    this.logger = new Logger();
-    this.env = new EnvManager();
-    this.setupDefaultMiddlewares();
+      const appOptions = {
+          ...options.ssl,
+          maxHeaderLength: 65536, 
+      };
+      
+      this.app = options.ssl ? App(appOptions) : App();
+      this.logger = new Logger();
+      this.env = new EnvManager();
+      this.setupDefaultMiddlewares();
   }
 
   private setupDefaultMiddlewares() {
@@ -148,12 +153,12 @@ export class UltraApp {
     return { ...result, files };
   }
 
-  use(middleware: Middleware): UltraApp {
+  use(middleware: Middleware): Qera {
     this.middlewares.push(middleware);
     return this;
   }
 
-  plugin(plugin: Plugin): UltraApp {
+  plugin(plugin: Plugin): Qera {
     this.plugins.push(plugin);
     plugin.install(this);
     return this;
@@ -279,32 +284,32 @@ export class UltraApp {
     return params;
   }
 
-  get(path: string, handler: RouteHandler): UltraApp {
+  get(path: string, handler: RouteHandler): Qera {
     this.registerRoute('get', path, handler);
     return this;
   }
 
-  post(path: string, handler: RouteHandler): UltraApp {
+  post(path: string, handler: RouteHandler): Qera {
     this.registerRoute('post', path, handler);
     return this;
   }
 
-  put(path: string, handler: RouteHandler): UltraApp {
+  put(path: string, handler: RouteHandler): Qera {
     this.registerRoute('put', path, handler);
     return this;
   }
 
-  delete(path: string, handler: RouteHandler): UltraApp {
+  delete(path: string, handler: RouteHandler): Qera {
     this.registerRoute('delete', path, handler);
     return this;
   }
 
-  patch(path: string, handler: RouteHandler): UltraApp {
+  patch(path: string, handler: RouteHandler): Qera {
     this.registerRoute('patch', path, handler);
     return this;
   }
 
-  listen(port: number, callback?: () => void): UltraApp {
+  listen(port: number, callback?: () => void): Qera {
     this.app.listen(port, (token) => {
       if (token) {
         this.logger.info(`🚀 Server running on port ${port}`);
@@ -321,3 +326,6 @@ export class UltraApp {
   }
 }
 
+
+
+export default Qera

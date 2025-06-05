@@ -1,4 +1,4 @@
-import { Plugin, Middleware } from '../types';
+import { Plugin, Middleware } from '../types/index.js';
 import { createGzip, createDeflate } from 'zlib';
 
 export class CompressionPlugin implements Plugin {

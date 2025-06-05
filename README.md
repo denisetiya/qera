@@ -25,7 +25,7 @@ npm install qera
 ## Quick Start
 
 ```typescript
-import { createApp, CorsPlugin, HelmetPlugin } from 'qera';
+import { createApp, CorsPlugin, HelmetPlugin } from 'Qera';
 
 const app = createApp();
 

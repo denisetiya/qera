@@ -1,4 +1,4 @@
-import { Plugin, Middleware, RateLimitOptions } from '../types';
+import { Plugin, Middleware, RateLimitOptions } from '../types/index.js';
 
 interface RateLimitStore {
   [key: string]: {

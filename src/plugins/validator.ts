@@ -1,4 +1,4 @@
-import { Plugin, ValidationSchema } from '../types';
+import { Plugin, ValidationSchema } from '../types/index.js';
 
 export class ValidationError extends Error {
   constructor(public field: string, public message: string) {

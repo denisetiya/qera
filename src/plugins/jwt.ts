@@ -1,4 +1,4 @@
-import { Plugin } from '../types';
+import { Plugin } from '../types/index.js';
 import { createHmac, randomBytes } from 'crypto';
 
 export interface JwtPayload {

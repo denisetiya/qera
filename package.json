@@ -1,13 +1,21 @@
 {
   "name": "qera",
-  "version": "0.1.5",
+  "version": "1.1.1",
   "description": "Ultra-fast TypeScript backend framework based on uWebSockets.js",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsx watch src/example.ts",
-    "start": "node dist/index.js",
+    "start": "node dist/example.js",
+    "test": "node dist/example.js",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -18,15 +26,15 @@
     "fast",
     "performance"
   ],
-  "author": "denisetiya",
+  "author": "Deni Setiya",
   "license": "MIT",
   "dependencies": {
     "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.52.0"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
     "tsx": "^4.0.0",
-    "typescript": "^5.0.0"
+    "@types/node": "^20.0.0"
   },
   "files": [
     "dist",
