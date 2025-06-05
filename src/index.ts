@@ -4,7 +4,7 @@ import type { FrameworkConfig, Handler, Middleware, Context, LoggerConfig } from
 import { Logger } from './logger.main';
 import { createContext } from './core.context';
 
-export class FastFramework {
+export class Qera {
   private app: TemplatedApp;
   private middlewares: Middleware[] = [];
   private config: FrameworkConfig;
