@@ -1,6 +1,6 @@
 {
   "name": "qera",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "High-performance backend framework based on uWebSockets.js with full TypeScript support",
   "main": "dist/index.js",
   "type": "module",
@@ -32,12 +32,10 @@
   },
   "dependencies": {
     "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.52.0",
-    "jsonwebtoken": "^9.0.2",
     "bcrypt": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.29",
-    "@types/jsonwebtoken": "^9.0.9",
     "@types/bcrypt": "^5.0.2",
     "typescript": "^5.8.3",
     "tsx": "^4.19.4"
